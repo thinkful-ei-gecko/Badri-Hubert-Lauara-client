@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LanguageContext from '../../contexts/LanguageContext'
+import LanguageService from '../../services/language-service';
 import './Dashboard.css';
 
 class DashboardRoute extends Component {

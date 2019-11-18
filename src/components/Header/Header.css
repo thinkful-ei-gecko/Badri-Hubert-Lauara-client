@@ -1,0 +1,38 @@
+.header {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.header:hover{
+    color: tan;
+}
+
+header {
+    display: flex;
+    height: auto;
+    padding: 10px;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.username {
+    font-weight: bold;
+}
+.navLink {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.navLink:hover {
+    color: grey;
+}
+
+.navLinks {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px;
+}

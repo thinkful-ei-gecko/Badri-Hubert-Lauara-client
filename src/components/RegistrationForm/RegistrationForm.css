@@ -1,0 +1,14 @@
+.registration {
+    padding: 25px;
+    text-align: center;
+}
+
+.already {
+    text-decoration: none;
+    color: black;
+    font-size: small;
+}
+
+.already:hover {
+    color: green;
+}

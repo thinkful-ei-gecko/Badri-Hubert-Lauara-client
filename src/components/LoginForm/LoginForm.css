@@ -1,0 +1,42 @@
+.box {
+    display: flex;
+    width: 350px;
+    height: 350px;
+    margin-top: 50px;
+    text-align: center;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.LoginForm {
+    padding: 25px;
+    text-align: center;
+}
+
+.formItem {
+    padding: 5px;
+}
+
+.Button {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(65, 65, 65);
+  font-size: 0.7rem;
+  font-weight: 600;
+  background-color: rgba(167, 167, 167, 0.6);
+  border: 2px solid rgb(219, 219, 219);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  margin: 6px 12px;
+  text-align: center;
+  padding: 3px 12px;
+  cursor: pointer;
+}
+
+.Button:hover {
+    box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.25);
+    background-color: lightgray;
+  }
+
+.Button:active {
+    background-color: rgba(146, 146, 146, 0.3);
+  }

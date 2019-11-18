@@ -1,34 +1,4 @@
-.studyHeader{
-  border-bottom: 2px solid rgb(182, 182, 182);
-  box-shadow: 0 6px 6px -4px rgb(80, 80, 80);
-  padding: 0;
-  background-color:rgba(153, 152, 152, 0.2)
-}
-.titleBox{
-  display: inline-block;
-  width: 80%;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.pageTitle {
-  font-size: 1.8rem;
-  line-height: 1.8rem;
-  margin: 3px 4vw;
-}
-.pageSubtitle{
-  font-size: 1.3rem;
-  line-height: 1.3rem;
-  font-style: italic;
-  margin: 9px 4vw;
-  padding-left: 5%;
-}
-.userBox {
-  display: inline-block;
-  width: 19%;
-  text-align: right;
-}
-.userName {
-  margin: 6px 12px;
-}
+
 .upperSection{
   text-align: center;
 }
@@ -69,7 +39,6 @@
   text-align: center;
   background-color: rgba(155, 108, 130, 0.3);
   padding: 3px 0 90px 0;
-  display: none;
 }
 .mode{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -130,7 +99,6 @@
   background-color: whitesmoke;
 }
 .pCard {
-  display: none;
 	opacity: 1;
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;

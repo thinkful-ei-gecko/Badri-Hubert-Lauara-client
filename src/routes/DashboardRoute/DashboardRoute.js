@@ -2,23 +2,31 @@ import React, { Component } from 'react';
 import LanguageContext from '../../contexts/LanguageContext'
 import LanguageService from '../../services/language-service';
 import './Dashboard.css';
+import PracticeCards from '../../components/PracticeCards/PracticeCards.js';
+import QuizCards from '../../components/QuizCards/QuizCards.js';
 
 class DashboardRoute extends Component {
 
-  static contextType = LanguageContext;
-
-  showCards = () => {
-    let cards = document.getElementById('practiceCards');
-    let quiz = document.getElementById('quizCards')
-    cards.style.display = 'block';
-    quiz.style.display = 'none';
+  constructor(props) {
+    super(props);
+    this.state = {
+      showPractice: true,
+      showQuiz: false,
+      error: null
+    };
   }
 
-  showQuiz = () => {
-    let quiz = document.getElementById('quizCards')
-    let cards = document.getElementById('practiceCards');
-    quiz.style.display = 'block';
-    cards.style.display = 'none';
+  static contextType = LanguageContext;
+
+  switchToStudy = (e) => {
+    e.preventDefault();
+    this.setState({showPractice: true})
+    this.setState({showQuiz: false})
+  }
+  switchToQuiz = (e) => {
+    e.preventDefault();
+    this.setState({showPractice: false})
+    this.setState({showQuiz: true})
   }
 
   async componentDidMount() {
@@ -29,19 +37,24 @@ class DashboardRoute extends Component {
 
   render() {
     let score = this.context.score;
+
+    const practiceCardsSection = this.state.showPractice ? <PracticeCards /> : '';
+    const quizCardsSection = this.state.showQuiz ? <QuizCards /> : '';
+
     return (<>
       <body>
-
         <main>
           <div className='upperSection'>
             <p className='currentScore'>Your overall score:{score}</p> 
-            <button className="basicBtn btnB" onclick={this.showCards}>Study Mode</button>
-            <button className="basicBtn btnB" onclick={this.showQuiz}>Quiz Mode</button>
+            <button className="basicBtn btnB" onClick={(e)=> {this.switchToStudy(e)}} >Study Mode</button>
+            <button className="basicBtn btnB"onClick={(e)=> {this.switchToQuiz(e)}} >Quiz Mode</button>
           </div>
+          {practiceCardsSection}
+          {quizCardsSection}
         </main>
       </body>
     </>);
   }
 }
 
-export default DashboardRoute
+export default DashboardRoute;

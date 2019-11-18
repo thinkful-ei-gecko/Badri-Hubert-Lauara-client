@@ -50,7 +50,7 @@ class RegistrationForm extends Component {
         <div className='formItem'>
           <Label htmlFor='registration-name-input'>
             Enter your name<Required />
-          </Label>
+          </Label><br/>
           <Input
             ref={this.firstInput}
             id='registration-name-input'
@@ -79,8 +79,8 @@ class RegistrationForm extends Component {
             required
           />
         </div>
-        <footer>
-          <Button type='submit' className='Button'>
+        <footer className='formFooter'>
+          <Button type='submit' className='basicBtn'>
             Sign up
           </Button>
           {' '}

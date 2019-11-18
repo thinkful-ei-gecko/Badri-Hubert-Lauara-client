@@ -10,7 +10,7 @@
 header {
     display: flex;
     height: auto;
-    padding: 9px;
+    padding: 3px 9px;
     flex-direction: row;
     background-color:rgba(153, 152, 152, 0.2);
     border-bottom: 2px solid rgb(182, 182, 182);

@@ -1,6 +1,8 @@
 .registration {
     padding: 25px;
     text-align: center;
+    margin-top: 45px;
+    margin-left: 20px;
 }
 
 .already {
@@ -11,4 +13,8 @@
 
 .already:hover {
     color: green;
+}
+
+Label {
+    font-size: small;
 }

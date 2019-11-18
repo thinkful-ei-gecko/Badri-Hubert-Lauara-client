@@ -3,3 +3,13 @@ footer {
     margin-top: 25px;
     
 }
+
+.footerLink {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.footerLink:hover {
+    color: cornflowerblue;
+}

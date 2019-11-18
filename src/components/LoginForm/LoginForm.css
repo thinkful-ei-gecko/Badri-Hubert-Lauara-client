@@ -6,11 +6,16 @@
     text-align: center;
     margin: auto;
     border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(147, 232, 224, 0.262);
+    box-shadow: 0 6px 6px -4px rgb(80, 80, 80);
 }
 
 .LoginForm {
     padding: 25px;
     text-align: center;
+    margin-top: 100px;
+    margin-left: 50px;
 }
 
 .formItem {
@@ -18,12 +23,12 @@
 }
 
 .Button {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: rgb(65, 65, 65);
   font-size: 0.7rem;
   font-weight: 600;
-  background-color: rgba(167, 167, 167, 0.6);
-  border: 2px solid rgb(219, 219, 219);
+  background-color: rgba(175, 175, 175, 0.9);
+  border: 2px solid rgb(189, 189, 189);
   border-radius: 3px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   margin: 6px 12px;

@@ -1,6 +1,10 @@
 import React from 'react';
+import LanguageService from '../../services/language-service';
+import LanguageContext from '../../contexts/LanguageContext'
 
 class PracticeCards extends React.Component{
+
+  static contextType = LanguageContext
 
   constructor(props) {
     super(props);
@@ -9,11 +13,18 @@ class PracticeCards extends React.Component{
       error: null
     };
   }
+
+  async componentDidMount() {
+    const { words } = await LanguageService.getLanguageWords()
+
+    this.context.setWords(words)
+  }
   
 
   render(){
-
-  
+    
+  let practiceWords = this.context.words;
+  console.log(practiceWords)
 
     return(
       <div className="practiceCards" id='practiceCards'>

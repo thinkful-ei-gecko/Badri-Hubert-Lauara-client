@@ -1,5 +1,5 @@
 import React from 'react';
-import LanguageService from '../../services/language-service';
+// import LanguageService from '../../services/language-service';
 import LanguageContext from '../../contexts/LanguageContext';
 
 class QuizCards extends React.Component {

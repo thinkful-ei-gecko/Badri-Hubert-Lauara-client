@@ -9,79 +9,55 @@ class PracticeCards extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      wordList: [],
+      currentWordIndex: 0,
       error: null
     };
   }
+  seePrevious = () => {
+    this.setState({currentWordIndex: this.state.currentWordIndex-1})
+  }
+  seeNext = () => {
+    this.setState({currentWordIndex: this.state.currentWordIndex+1})
+  }
 
   async componentDidMount() {
-    const { words } = await LanguageService.getLanguage()
-
-    this.context.setWords(words)
+    const { words } = await LanguageService.getLanguage();
+    this.context.setWords(words);
   }
   
 
   render(){
-    
-  let practiceWords = this.context.words;
-  console.log(practiceWords)
+
+    let practiceWords = this.context.words;
+
+    const allCards = practiceWords.map((word, index) => 
+      <div className='pCard' key={index}>
+        <div className="card">
+          <div className="leftSide">
+            <h3 className='vocabItem'>{word.original}</h3>
+            <h4 className='vocabAnswer'>{word.translation}</h4>
+          </div>
+          <div className="rightSide">
+            <p className='tallyTop'>YOUR TALLY</p>
+            <p className='tallyParag'>Correct</p>
+            <p className='tallyCount'>{word.correct_count}</p>
+            <p className='tallyParag'>Incorrect</p>
+            <p className='tallyCount'>{word.incorrect_count}</p>
+          </div>
+        </div>
+      </div> );
+
+    const currentCard = allCards[this.state.currentWordIndex];
 
     return(
       <div className="practiceCards" id='practiceCards'>
-      <p className='mode'>STUDY CARDS</p>
-  
-      <div className='pCard'>
-        <div className="card">
-          <div className="leftSide">
-              <h3 className='vocabItem'>los pulmones</h3>
-              <h4 className='vocabAnswer'>lungs</h4>
-          </div>
-          <div className="rightSide">
-            <p className='tallyTop'>YOUR TALLY</p>
-            <p className='tallyParag'>Correct</p>
-            <p className='tallyCount'>2</p>
-            <p className='tallyParag'>Incorrect</p>
-            <p className='tallyCount'>2</p>
-          </div>
-        </div>
+        <p className='mode'>STUDY CARDS</p>
+        {currentCard}
+        <button className="basicBtn btnB prev" onClick={this.seePrevious} >Previous</button>
+        <button className="basicBtn btnB next" onClick={this.seeNext} >Next</button>
       </div>
-  
-      <div className='pCard'>
-        <div className="card">
-          <div className="leftSide">
-            <h3 className='vocabItem'>el higado</h3>
-            <h4 className='vocabAnswer'>liver</h4>
-          </div>
-          <div className="rightSide">
-            <p className='tallyTop'>YOUR TALLY</p>
-            <p className='tallyParag'>Correct</p>
-            <p className='tallyCount'>3</p>
-            <p className='tallyParag'>Incorrect</p>
-            <p className='tallyCount'>1</p>
-          </div>
-        </div>
-      </div>
-  
-      <div className='pCard'>
-        <div className="card">
-          <div className="leftSide">
-          <h3 className='vocabItem'>el hueso</h3>
-          <h4 className='vocabAnswer'>bone</h4>
-          </div>
-          <div className="rightSide">
-            <p className='tallyTop'>YOUR TALLY</p>
-            <p className='tallyParag'>Correct</p>
-            <p className='tallyCount'>2</p>
-            <p className='tallyParag'>Incorrect</p>
-            <p className='tallyCount'>0</p>
-          </div>
-        </div>
-      </div>
-  
-      <button className="basicBtn prev" >Previous</button>
-      <button className="basicBtn next" >Next</button>
-    </div>
     );
+
   }
 }
 export default PracticeCards;

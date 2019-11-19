@@ -20,18 +20,15 @@ class DashboardRoute extends Component {
 
   switchToStudy = (e) => {
     e.preventDefault();
-    this.setState({showPractice: true})
-    this.setState({showQuiz: false})
+    this.setState({showPractice: true, showQuiz: false});
   }
   switchToQuiz = (e) => {
     e.preventDefault();
-    this.setState({showPractice: false})
-    this.setState({showQuiz: true})
+    this.setState({showPractice: false, showQuiz: true});
   }
 
   async componentDidMount() {
-    const { language } =  await LanguageService.getLanguage()
-    
+    const { language } =  await LanguageService.getLanguage();  
     this.context.setScore(language.total_score)
   }
 
@@ -42,18 +39,17 @@ class DashboardRoute extends Component {
     const quizCardsSection = this.state.showQuiz ? <QuizCards /> : '';
 
     return (<>
-      <body>
-        <main>
+        <section>
           <div className='upperSection'>
             <p className='currentScore'>Your overall score:{score}</p> 
             <button className="basicBtn btnB" onClick={(e)=> {this.switchToStudy(e)}} >Study Mode</button>
             <button className="basicBtn btnB"onClick={(e)=> {this.switchToQuiz(e)}} >Quiz Mode</button>
           </div>
-          {practiceCardsSection}
-          {quizCardsSection}
-        </main>
-      </body>
-    </>);
+        </section>
+
+        {practiceCardsSection}
+        {quizCardsSection}
+      </>);
   }
 }
 

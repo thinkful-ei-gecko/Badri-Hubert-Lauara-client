@@ -14,10 +14,16 @@ class PracticeCards extends React.Component{
     };
   }
   seePrevious = () => {
-    this.setState({currentWordIndex: this.state.currentWordIndex-1})
+    if(this.state.currentWordIndex > 0){
+      this.setState({currentWordIndex: this.state.currentWordIndex-1})
+    }
+    return;
   }
   seeNext = () => {
-    this.setState({currentWordIndex: this.state.currentWordIndex+1})
+    if(this.state.currentWordIndex < (this.context.words).length-1){
+      this.setState({currentWordIndex: this.state.currentWordIndex+1})
+    }
+    return;
   }
 
   async componentDidMount() {

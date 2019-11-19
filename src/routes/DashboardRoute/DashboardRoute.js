@@ -41,7 +41,7 @@ class DashboardRoute extends Component {
     return (<>
         <section>
           <div className='upperSection'>
-            <p className='currentScore'>Your overall score:{score}</p> 
+            <p className='currentScore'>Your overall score:&nbsp;{score}</p> 
             <button className="basicBtn btnB" onClick={(e)=> {this.switchToStudy(e)}} >Study Mode</button>
             <button className="basicBtn btnB"onClick={(e)=> {this.switchToQuiz(e)}} >Quiz Mode</button>
           </div>

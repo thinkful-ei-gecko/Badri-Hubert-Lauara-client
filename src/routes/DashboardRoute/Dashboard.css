@@ -11,7 +11,7 @@
   font-size: 0.7rem;
   font-weight: 600;
   background-color: rgba(167, 167, 167, 0.6);
-  border: 2px solid rgb(219, 219, 219);
+  border: 3px solid rgb(220, 220, 220);
   border-radius: 3px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   margin: 6px 12px;
@@ -106,7 +106,7 @@
   margin: 0;
 }
 .answerBox{
-  margin: 3px 0 33px 0;
+  margin: 4px 0 33px 0;
   background-color: whitesmoke;
 }
 .pCard,

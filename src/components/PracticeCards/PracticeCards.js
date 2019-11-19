@@ -15,7 +15,7 @@ class PracticeCards extends React.Component{
   }
 
   async componentDidMount() {
-    const { words } = await LanguageService.getLanguageWords()
+    const { words } = await LanguageService.getLanguage()
 
     this.context.setWords(words)
   }

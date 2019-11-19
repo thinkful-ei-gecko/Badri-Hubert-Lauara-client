@@ -16,21 +16,6 @@ const LanguageService = {
     }
     return data;
   },
-
-  getLanguageWords: async () => {
-    let data;
-    try {
-      let res = await fetch(`${config.API_ENDPOINT}/language`, {
-        headers: {
-          'authorization': `Bearer ${TokenService.getAuthToken()}`
-        }
-      })
-      data = await res.json();
-    } catch (e) {
-      throw new Error(e)
-    }
-    return data;
-  }
 }
 
 export default LanguageService;

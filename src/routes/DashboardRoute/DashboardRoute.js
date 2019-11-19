@@ -30,7 +30,7 @@ class DashboardRoute extends Component {
   }
 
   async componentDidMount() {
-    const {language, words} =  await LanguageService.getLanguage()
+    const { language } =  await LanguageService.getLanguage()
     
     this.context.setScore(language.total_score)
   }

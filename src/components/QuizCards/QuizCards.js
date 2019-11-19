@@ -17,23 +17,27 @@ class QuizCards extends React.Component {
   render(){
     return(
       <div className="quizCards" id='quizCards'>
-      <p className='mode'>QUIZ MODE</p>
-      <div className="card">
-        <div className="leftSide">
-            <h3 className='vocabItem'>los pulmones</h3>
-            <form>
-              <input type='text' className='answerBox' placeholder='type answer here' required />
-            </form>
+        <p className='mode'>QUIZ MODE</p>
+
+        <div className='qCard' key='index'>
+          <div className="card">
+            <div className="leftSide">
+              <h3 className='vocabItem'>los pulmones</h3>
+              <form>
+                <input type='text' className='answerBox' placeholder='type answer here' required />
+              </form>
+            </div>
+            <div className="rightSide">
+              <p className='tallyTop'>YOUR TALLY</p>
+              <p className='tallyParag'>Correct</p>
+              <p className='tallyCount'>2</p>
+              <p className='tallyParag'>Incorrect</p>
+              <p className='tallyCount'>2</p>
+            </div>
+          </div>
         </div>
-        <div className="rightSide">
-          <p className='tallyTop'>YOUR TALLY</p>
-          <p className='tallyParag'>Correct</p>
-          <p className='tallyCount'>2</p>
-          <p className='tallyParag'>Incorrect</p>
-          <p className='tallyCount'>2</p>
-        </div>
-      </div>
-      <button className="basicBtn">Next</button>
+
+      <button className="basicBtn btnB">Next</button>
     </div>
     )
   }

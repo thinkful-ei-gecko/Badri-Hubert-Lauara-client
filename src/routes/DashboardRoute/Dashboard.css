@@ -32,13 +32,13 @@
 .practiceCards{
   text-align: center;
   background-color: rgba(100, 163, 163, 0.3);
-  padding: 3px 0 90px 0;
+  padding: 3px 0 45px 0;
   display: block;
 }
 .quizCards{
   text-align: center;
   background-color: rgba(155, 108, 130, 0.3);
-  padding: 3px 0 90px 0;
+  padding: 3px 0 45px 0;
 }
 .mode{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -109,7 +109,8 @@
   margin: 3px 0 33px 0;
   background-color: whitesmoke;
 }
-.pCard {
+.pCard,
+.qCard {
 	opacity: 1;
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;

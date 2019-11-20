@@ -1,7 +1,10 @@
-footer {
+.mainFooter {
     text-align: center;
     margin-top: 25px;
     border-top: solid 1px lightgrey;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .footerLink {

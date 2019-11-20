@@ -1,7 +1,7 @@
 footer {
     text-align: center;
     margin-top: 25px;
-    
+    border-top: solid 1px lightgrey;
 }
 
 .footerLink {
@@ -13,3 +13,4 @@ footer {
 .footerLink:hover {
     color: cornflowerblue;
 }
+

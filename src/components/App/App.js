@@ -6,7 +6,8 @@ import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
-import LearningRoute from '../../routes/LearningRoute/LearningRoute'
+//import LearningRoute from '../../routes/LearningRoute/LearningRoute'
+import QuizCards from '../../components/QuizCards/QuizCards'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import Footer from '../Footer/Footer'
 import './App.css'
@@ -36,7 +37,7 @@ export default class App extends Component {
             />
             <PrivateRoute
               path={'/learn'}
-              component={LearningRoute}
+              component={QuizCards}
             />
             <PublicOnlyRoute
               path={'/register'}

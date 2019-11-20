@@ -10,17 +10,23 @@ class QuizCards extends React.Component {
     super(props);
     this.state = {
       wordList: [],
+      guess_word: '',
       error: null
     };
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { guess_word } = e.target
+    LanguageService.postGuessWord(guess_word.value)
   }
   
   async componentDidMount() {
     const data = await LanguageService.getLanguageHead();
     //this.context.setWords(words);
+    this.context.setCurrentWord(data)
     console.log(data);
   }
-
-
 
   render(){
     return(
@@ -31,11 +37,12 @@ class QuizCards extends React.Component {
           <div className="card">
             <div className="leftSide">
               <h3 className='vocabItem'>los pulmones</h3>
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <input 
                   type='text' 
                   className='answerBox' 
-                  placeholder='type answer here' 
+                  placeholder='type answer here'
+                  id="guess_word"
                   aria-label="guess box for quiz words"
                   aria-required="true"
                   aria-describedby="quizCards"

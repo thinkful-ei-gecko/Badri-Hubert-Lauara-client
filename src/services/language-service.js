@@ -32,6 +32,24 @@ const LanguageService = {
     return data;
   },
 
+  postGuessWord: async (guess) => {
+    let data;
+    try {
+      let res = await fetch(`${config.API_ENDPOINT}/language/guess`, {
+        method: 'POST',
+        headers: {
+          'content-type' : 'application/json',
+          'authorization': `Bearer ${TokenService.getAuthToken()}`
+        },
+        body: JSON.stringify(guess),
+      })
+      data = await res.json()
+    } catch (e) {
+      throw new Error(e)
+    }
+    return data;
+  }
+
 }
 
 export default LanguageService;

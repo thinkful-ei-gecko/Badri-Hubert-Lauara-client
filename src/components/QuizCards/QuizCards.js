@@ -25,18 +25,17 @@ class QuizCards extends React.Component {
     const data = await LanguageService.getLanguageHead();
     //this.context.setWords(words);
     this.context.setCurrentWord(data)
-    console.log(data);
+    console.log(this.context.currentWord);
   }
 
   render(){
     return(
       <div className="quizCards" id='quizCards'>
         <p className='mode'>QUIZ MODE</p>
-
         <div className='qCard' key='index'>
           <div className="card">
             <div className="leftSide">
-              <h3 className='vocabItem'>los pulmones</h3>
+              <h3 className='vocabItem'>{this.context.currentWord.nextWord}</h3>
               <form onSubmit={this.handleSubmit}>
                 <input 
                   type='text' 
@@ -48,18 +47,18 @@ class QuizCards extends React.Component {
                   aria-describedby="quizCards"
                   required 
                 />
+                <input type='submit'></input>
               </form>
             </div>
             <div className="rightSide">
               <p className='tallyTop'>YOUR TALLY</p>
               <p className='tallyParag'>Correct</p>
-              <p className='tallyCount'>2</p>
+              <p className='tallyCount'>{this.context.currentWord.wordCorrectCount}</p>
               <p className='tallyParag'>Incorrect</p>
-              <p className='tallyCount'>2</p>
+              <p className='tallyCount'>{this.context.currentWord.wordIncorrectCount}</p>
             </div>
           </div>
         </div>
-
       <button className="basicBtn btnB">Next</button>
     </div>
     )

@@ -28,7 +28,6 @@ const LanguageService = {
     } catch (e) {
       throw new Error(e)
     }
-    console.log(data);
     return data;
   },
 

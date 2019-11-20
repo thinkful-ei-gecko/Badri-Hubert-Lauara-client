@@ -1,5 +1,5 @@
 import React from 'react';
-// import LanguageService from '../../services/language-service';
+import LanguageService from '../../services/language-service';
 import LanguageContext from '../../contexts/LanguageContext';
 
 class QuizCards extends React.Component {
@@ -14,6 +14,14 @@ class QuizCards extends React.Component {
     };
   }
   
+  async componentDidMount() {
+    const data = await LanguageService.getLanguageHead();
+    //this.context.setWords(words);
+    console.log(data);
+  }
+
+
+
   render(){
     return(
       <div className="quizCards" id='quizCards'>

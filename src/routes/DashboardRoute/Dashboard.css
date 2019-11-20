@@ -105,9 +105,32 @@
   font-style: italic;
   margin: 0;
 }
+.vocabItem2{
+  font-size: 2rem;
+  margin: 15px 0 9px 0;
+}
+.quizInputLabel{
+  margin: 3px 0;
+}
 .answerBox{
   margin: 4px 0 33px 0;
   background-color: whitesmoke;
+}
+.answerBox2{
+  margin: 9px auto;
+  background-color: whitesmoke;
+  line-height: 1.2rem;
+}
+#submitAnswer{
+  padding: 2px 6px;
+}
+#feedback{
+  font-size: 1rem;
+}
+#proceed{
+
+  display: inline-block;
+  margin-left: 9px;
 }
 .pCard,
 .qCard {

@@ -24,7 +24,15 @@ class QuizCards extends React.Component {
             <div className="leftSide">
               <h3 className='vocabItem'>los pulmones</h3>
               <form>
-                <input type='text' className='answerBox' placeholder='type answer here' required />
+                <input 
+                  type='text' 
+                  className='answerBox' 
+                  placeholder='type answer here' 
+                  aria-label="guess box for quiz words"
+                  aria-required="true"
+                  aria-describedby="quizCards"
+                  required 
+                />
               </form>
             </div>
             <div className="rightSide">

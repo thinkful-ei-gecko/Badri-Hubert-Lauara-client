@@ -47,7 +47,6 @@ class QuizCards extends React.Component {
     return(
       <div className="quizCards" id='quizCards'>
         <p className='mode'>QUIZ MODE</p>
-
         <div className='qCard' key='index'>
           <div className="card">
             <div className="leftSide">

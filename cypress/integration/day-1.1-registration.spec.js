@@ -66,7 +66,7 @@ describe(`User story: Register an account`, function() {
         .as('postRegister')
     })
 
-    it(`displays error from POSTS /api/users`, () => {
+    it(`displays error for POSTS to /api/users`, () => {
       const newUser = {
         name: 'Test name',
         username: 'invalid-username',

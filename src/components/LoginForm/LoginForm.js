@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Input, Label } from '../Form/Form'
-import AuthApiService from '../../services/auth-api-service'
-import UserContext from '../../contexts/UserContext'
-import Button from '../Button/Button'
-import './LoginForm.css'
+import { Input, Label } from '../Form/Form';
+import AuthApiService from '../../services/auth-api-service';
+import UserContext from '../../contexts/UserContext';
+import Button from '../Button/Button';
+import './LoginForm.css';
 
 class LoginForm extends Component {
   static defaultProps = {
@@ -45,16 +45,13 @@ class LoginForm extends Component {
     const { error } = this.state
     return (
       <div className='box'>
-      <form
-        className='LoginForm'
-        onSubmit={this.handleSubmit}
-      >
+      <form className='LoginForm' onSubmit={this.handleSubmit} >
         <div role='alert'>
           {error && <p className='alertMsg2' >{error}</p>}
         </div>
         <div className='formItem'>
           <Label htmlFor='login-username-input'>
-            Username {' '}
+            Username{' '}
           </Label>
           <Input className='formBox'
             ref={this.firstInput}
@@ -65,7 +62,7 @@ class LoginForm extends Component {
         </div>
         <div className='formItem'>
           <Label htmlFor='login-password-input'>
-            Password {' '}
+            Password{' '}
           </Label>
           <Input className='formBox'
             id='login-password-input'
@@ -74,13 +71,11 @@ class LoginForm extends Component {
             required
           />
         </div>
-        <Button className='basicBtn' type='submit'>
-          Login
-        </Button>
+        <Button className='basicBtn' type='submit'>Login</Button>
       </form>
       </div>
     )
   }
 }
 
-export default LoginForm
+export default LoginForm;

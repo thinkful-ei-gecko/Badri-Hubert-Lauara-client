@@ -4,7 +4,7 @@ import LanguageContext from '../../contexts/LanguageContext';
 
 class QuizCards extends React.Component {
 
-  static contextType = LanguageContext
+  static contextType = LanguageContext;
   
   constructor(props) {
     super(props);
@@ -14,18 +14,44 @@ class QuizCards extends React.Component {
       incorrectTally: 0,
       totalScore: 0,
       answerSubmitted: false,
+      answeredCorrectly: false,
+      correctAnswer: '',
       error: null
     };
   }
 
-  handleSubmit = (e) => {
+  async handleSubmit(e) {
     e.preventDefault();
     const guess = e.target.guessInput.value;
     console.log(guess);
-    this.setState({answerSubmitted: true});
-    LanguageService.postGuessWord(guess);
+    const reply = await LanguageService.postGuessWord(guess);
+    console.log(reply);
+    this.processFeedback(reply);
+  }
+
+  processFeedback(reply){
+    console.log(reply.answer);
+    this.setState({
+      correctTally: reply.wordCorrectCount,
+      incorrectTally: reply.wordIncorrectCount,
+      totalScore: reply.totalScore,
+      answeredCorrectly: reply.isCorrect,
+      correctAnswer: reply.answer,
+      answerSubmitted: true
+    });
+    this.context.setScore(reply.totalScore)
   }
   
+  chooseMessage() {
+    if(this.state.answerSubmitted && this.state.answeredCorrectly){
+      return `Yes, the answer is "${this.state.correctAnswer}"!`;
+    }
+    else if(this.state.answerSubmitted && !this.state.answeredCorrectly){
+      return `Incorrect. The answer is "${this.state.correctAnswer}".`;
+    }
+    else return ' ';
+  }
+
   async componentDidMount() {
     const data = await LanguageService.getLanguageHead();
     console.log(data);
@@ -38,10 +64,12 @@ class QuizCards extends React.Component {
   }
 
   render(){
-    const feedbackMessage = 'get message from post response';
 
+    const feedbackMessage = this.chooseMessage();
+    console.log(feedbackMessage);
+    
     const nextButton = this.state.answerSubmitted 
-      ? <span id='feedback'>{feedbackMessage}<button className="basicBtn btnB" id='proceed'>Next</button></span>
+      ? <span id='feedback'><em>{feedbackMessage}</em><button className="basicBtn btnB" id='proceed'>Next</button></span>
       : '';
 
     return(
@@ -51,7 +79,7 @@ class QuizCards extends React.Component {
           <div className="card">
             <div className="leftSide">
               <h3 className='vocabItem2'>{this.state.currentWord}</h3>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={(e) => this.handleSubmit(e)}>
                 <label htmlFor='guessInput' className='quizInputLabel'>What's the translation for this word?</label>
                 <input  type='text'  className='answerBox2' 
                   placeholder='type answer here'
@@ -72,7 +100,14 @@ class QuizCards extends React.Component {
             </div>
           </div>
         </div>
-      {nextButton}
+        <div className='messageHolder'>
+        <p>
+        {nextButton}<span style={{'visibility':'hidden','fontSize':'3.2rem'}}>l</span>
+        </p>
+
+
+        </div>
+      
     </div>
     )
   }

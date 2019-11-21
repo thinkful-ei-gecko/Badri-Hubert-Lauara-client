@@ -22,11 +22,18 @@ class QuizCards extends React.Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    const guess = e.target.guessInput.value;
-    const reply = await LanguageService.postGuessWord(guess);
-    this.processFeedback(reply);
-    const form = document.getElementById('wordInput')
-    form.reset()
+    if (!this.state.answerSubmitted) {
+      const guess = e.target.guessInput.value;
+      const reply = await LanguageService.postGuessWord(guess);
+      this.processFeedback(reply);
+      const form = document.getElementById('wordInput')
+      form.reset()
+    }
+    else {
+      window.alert("Please click 'Next' to continue.")
+      const form = document.getElementById('wordInput')
+      form.reset()
+    }
   }
 
   processFeedback(reply){

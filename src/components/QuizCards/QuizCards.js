@@ -23,14 +23,13 @@ class QuizCards extends React.Component {
   async handleSubmit(e) {
     e.preventDefault();
     const guess = e.target.guessInput.value;
-    console.log(guess);
     const reply = await LanguageService.postGuessWord(guess);
-    console.log(reply);
     this.processFeedback(reply);
+    const form = document.getElementById('wordInput')
+    form.reset()
   }
 
   processFeedback(reply){
-    console.log(reply.answer);
     this.setState({
       correctTally: reply.wordCorrectCount,
       incorrectTally: reply.wordIncorrectCount,
@@ -54,7 +53,6 @@ class QuizCards extends React.Component {
 
   async componentDidMount() {
     const data = await LanguageService.getLanguageHead();
-    console.log(data);
       this.setState({
         currentWord: data.nextWord,
         correctTally: data.wordCorrectCount, 
@@ -63,13 +61,19 @@ class QuizCards extends React.Component {
       });
   }
 
+  handleNext = () => {
+    this.setState({
+      answerSubmitted: false
+    })
+    this.componentDidMount()
+  }
+
   render(){
 
     const feedbackMessage = this.chooseMessage();
-    console.log(feedbackMessage);
     
     const nextButton = this.state.answerSubmitted 
-      ? <span id='feedback'><em>{feedbackMessage}</em><button className="basicBtn btnB" id='proceed'>Next</button></span>
+      ? <span id='feedback'><em>{feedbackMessage}</em><button onClick={this.handleNext} className="basicBtn btnB" id='proceed'>Next</button></span>
       : '';
 
     return(
@@ -79,7 +83,7 @@ class QuizCards extends React.Component {
           <div className="card">
             <div className="leftSide">
               <h3 className='vocabItem2'>{this.state.currentWord}</h3>
-              <form onSubmit={(e) => this.handleSubmit(e)}>
+              <form id='wordInput' onSubmit={(e) => this.handleSubmit(e)}>
                 <label htmlFor='guessInput' className='quizInputLabel'>What's the translation for this word?</label>
                 <input  type='text'  className='answerBox2' 
                   placeholder='type answer here'

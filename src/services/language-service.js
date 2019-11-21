@@ -31,24 +31,26 @@ const LanguageService = {
     return data;
   },
 
-  postGuessWord: async (guess) => {
+  postGuessWord: async (learnerGuess) => {
     let data;
+    let guess = { guess : learnerGuess };
+    let options = {
+      method: 'POST',
+      body: JSON.stringify(guess),
+      headers: {
+        'content-type' : 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    }
     try {
-      let res = await fetch(`${config.API_ENDPOINT}/language/guess`, {
-        method: 'POST',
-        headers: {
-          'content-type' : 'application/json',
-          'authorization': `Bearer ${TokenService.getAuthToken()}`
-        },
-        body: JSON.stringify(guess),
-      })
+      let res = await fetch(`${config.API_ENDPOINT}/language/guess`, options)
       data = await res.json()
     } catch (e) {
       throw new Error(e)
     }
+    console.log(data);
     return data;
   }
-
 }
 
 export default LanguageService;

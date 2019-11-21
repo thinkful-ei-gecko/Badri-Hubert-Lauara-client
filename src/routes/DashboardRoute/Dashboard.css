@@ -32,13 +32,13 @@
 .practiceCards{
   text-align: center;
   background-color: rgba(100, 163, 163, 0.3);
-  padding: 3px 0 45px 0;
+  padding: 3px 0 60px 0;
   display: block;
 }
 .quizCards{
   text-align: center;
   background-color: rgba(155, 108, 130, 0.3);
-  padding: 3px 0 45px 0;
+  padding: 3px 0 51px 0;
 }
 .mode{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -124,13 +124,21 @@
 #submitAnswer{
   padding: 2px 6px;
 }
+.messageHolder{
+  text-align: center;
+}
 #feedback{
   font-size: 1rem;
+  background-color: rgb(255, 255, 103);
+  border-radius: 6px;
+  padding: 9px;
+  width: 50%;
+  vertical-align: 18px;
 }
 #proceed{
-
   display: inline-block;
-  margin-left: 9px;
+  vertical-align: 3px;
+  margin-left: 30px;
 }
 .pCard,
 .qCard {

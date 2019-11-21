@@ -35,6 +35,7 @@ class PracticeCards extends React.Component{
   render(){
 
     let practiceWords = this.context.words;
+    console.log(practiceWords)
 
     const allCards = practiceWords.map((word, index) => 
       <div className='pCard' key={index}>

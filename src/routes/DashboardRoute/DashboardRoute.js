@@ -25,6 +25,7 @@ class DashboardRoute extends Component {
   switchToQuiz = (e) => {
     e.preventDefault();
     this.setState({showPractice: false, showQuiz: true});
+    console.log(this.state.showQuiz)
   }
 
   async componentDidMount() {
@@ -43,7 +44,7 @@ class DashboardRoute extends Component {
           <div className='upperSection'>
             <p className='currentScore'>Your overall score:&nbsp;{score}</p> 
             <button className="basicBtn btnB" onClick={(e)=> {this.switchToStudy(e)}} >Study Mode</button>
-            <button className="basicBtn btnB"onClick={(e)=> {this.switchToQuiz(e)}} >Quiz Mode</button>
+            <button className="basicBtn btnB" onClick={(e)=> {this.switchToQuiz(e)}} >Quiz Mode</button>
           </div>
         </section>
 

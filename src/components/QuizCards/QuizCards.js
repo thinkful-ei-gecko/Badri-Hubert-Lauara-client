@@ -9,26 +9,11 @@ class QuizCards extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    nextWord : {
-      nextWord : '',
-      wordCorrectCount : 0,
-      wordIncorrectCount : 0,
-      answer : '',
-      isCorrect : null
-    },
-    currentWord : {
-      word : '',
-      wordCorrectCount : 0,
-      wordIncorrectCount : 0,
-      totalScore : 0,
-      answer : '',
-      isCorrect : null
-    },
-      wordCorrectCount: 0,
-      wordIncorrectCount: 0,
+      currentWord: '',
+      correctTally: 0,
+      incorrectTally: 0,
       totalScore: 0,
       answerSubmitted: false,
-      isCorrect: null,
       error: null
     };
   }
@@ -36,26 +21,18 @@ class QuizCards extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const guess = e.target.guessInput.value;
-    //console.log(guess);
+    console.log(guess);
     this.setState({answerSubmitted: true});
-    LanguageService.postGuessWord(guess)
-      .then(res => this.context.setCurrentWord(res))
-      .catch(e => console.error(e))
-
-    console.log(this.context.currentWord)
+    LanguageService.postGuessWord(guess);
   }
-
-  handleNext = (e) => {
-
-  };
   
   async componentDidMount() {
     const data = await LanguageService.getLanguageHead();
     console.log(data);
       this.setState({
-        nextWord: data.nextWord,
-        wordCorrectCount: data.wordCorrectCount, 
-        wordIncorrectCount: data.wordIncorrectCount,
+        currentWord: data.nextWord,
+        correctTally: data.wordCorrectCount, 
+        incorrectTally: data.wordIncorrectCount,
         totalScore: data.totalScore     
       });
   }
@@ -73,14 +50,12 @@ class QuizCards extends React.Component {
         <div className='qCard' key='index'>
           <div className="card">
             <div className="leftSide">
-              <h3 className='vocabItem2'>{this.state.nextWord}</h3>
+              <h3 className='vocabItem2'>{this.state.currentWord}</h3>
               <form onSubmit={this.handleSubmit}>
                 <label htmlFor='guessInput' className='quizInputLabel'>What's the translation for this word?</label>
-                <input  type='text'  
-                  className='answerBox2' 
+                <input  type='text'  className='answerBox2' 
                   placeholder='type answer here'
-                  id="guessInput" 
-                  name='guessInput'
+                  id="guessInput" name='guessInput'
                   aria-label="guess box for quiz words"
                   aria-required="true"
                   aria-describedby="quizCards"
@@ -91,9 +66,9 @@ class QuizCards extends React.Component {
             <div className="rightSide">
               <p className='tallyTop'>YOUR TALLY</p>
               <p className='tallyParag'>Correct</p>
-              <p className='tallyCount'>{this.state.wordCorrectCount}</p>
+              <p className='tallyCount'>{this.state.correctTally}</p>
               <p className='tallyParag'>Incorrect</p>
-              <p className='tallyCount'>{this.state.wordIncorrectCount}</p>
+              <p className='tallyCount'>{this.state.incorrectTally}</p>
             </div>
           </div>
         </div>

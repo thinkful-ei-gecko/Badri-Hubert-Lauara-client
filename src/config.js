@@ -1,6 +1,6 @@
 const config = {
   API_ENDPOINT: 'http://localhost:8000/api',
-  REACT_APP_API_BASE: 'https://learn-spanish-med-terms-api.herokuapp.com'
+  REACT_APP_API_BASE: 'https://learn-spanish-med-terms-api.herokuapp.com/api'
 }
 
 export default config;

@@ -40,21 +40,21 @@ describe(`User story: User's dashboard`, function() {
             `Your overall score: ${language.total_score}`,
           )
 
-        cy.get('button')
-          .should('have.text', 'Study Mode')
-
-        cy.get('button')
-          .should('have.text', 'Quiz Mode')
+        cy.get('button').should(($buttons) => {
+          expect($buttons, '2 items').to.have.length(2)
+          expect($buttons.eq(0), 'first button').to.contain('Study Mode')
+          expect($buttons.eq(1), 'second button').to.contain('Quiz Mode')
+        })
       })
     })
   })
 
-  it(`shows a DIV and scores for each item`, () => {
+  it.only(`shows a DIV and scores for each item`, () => {
     cy.wait('@languageRequest')
     cy.fixture('language.json').then(({ words }) => {
 
-      words.map((word, index) => {
-        cy.get('main div li').eq(index).within($li => {
+      words.forEach((word, index) => {
+        cy.get('main li').eq(index).within($li => {
 
           cy.get('h3').should('have.text', word.original)
 

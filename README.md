@@ -1,4 +1,29 @@
-# Spaced Repetition Capstone
+# Learn Spanish Medical Terminology - Spaced Repetition Capstone
+
+* Link to live app: 
+* Link to live server: 
+
+* Link to client repo: https://github.com/thinkful-ei-gecko/Badri-Hubert-Lauara-client
+* Link to API repo: https://github.com/thinkful-ei-gecko/Badri-Hubert-Laura-Spaced-Repetition-Server
+
+## Teammates: Badri, Hubert, and Laura
+
+### Summary
+Get a simple start with learning Spanish Medical Terminology by way of spaced repetition. Users can first navigate to 'Study Mode' where they can study the spanish terms and english translations. Once they feel comfortable and want to prove their translation ability, they can switch over to 'Quiz Mode' and test their skills.
+
+### Technology
+#### Front-End
+* React
+* CSS
+* Zeit (Website Host)
+* Cypress (Testing)
+
+#### Back-End
+* Node.js
+* Express.js
+* PostgreSQL (Database)
+* Mocha/Chai (Testing)
+* Heroku (Server/Database Host)
 
 ## Setup
 
@@ -8,8 +33,6 @@ To setup the application
 2. `npm install`. This will also install the application *Cypress.io* for running browser integration tests
 
 The project expects you have the Spaced repetition API project setup and running on http://localhost:8000.
-
-Find instructions to setup the API here https://github.com/Thinkful-Ed/spaced-repetition-api.
 
 ## Running project
 

@@ -36,8 +36,8 @@ class PracticeCards extends React.Component{
 
     let words = this.context.words;
 
-    const allCards = words.map((word) => 
-      <li className='pCard' key={word.id}>
+    const allCards = words.map((word, idx) => 
+      <li className='pCard' key={idx}>
         <div className="card">
           <div className="leftSide">
             <h3 className='vocabItem'>{word.original}</h3>

@@ -2,9 +2,17 @@
 .upperSection{
   text-align: center;
 }
+.languageTitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  margin: 9px auto;
+}
 .currentScore {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  margin: 9px auto;
 }
+
 .basicBtn {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: rgb(65, 65, 65);
@@ -46,7 +54,7 @@
   font-weight: 500;
   font-style: italic;
   color: rgb(80, 80, 80);
-  margin: 30px 0;
+  margin: 24px 0;
 }
 .card {
   width: 45%;
@@ -63,6 +71,13 @@
 .leftSide{
   width: 65%;
   text-align: center;
+}
+.wordNumber{
+  text-align: left;
+  font-size: 0.5rem;
+  margin: 0;
+  padding: 0;
+  padding-left: 9px;
 }
 .vocabItem {
   font-size: 2rem;
@@ -142,12 +157,14 @@
 }
 .pCard,
 .qCard {
+  list-style-type: none;
+  padding: 0;
+  margin: 24px auto;
 	opacity: 1;
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;
   animation-duration: 0.3s;
-  margin: 24px auto;
 }
 
 @keyframes fadeInOpacity {

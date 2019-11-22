@@ -12,6 +12,9 @@ class DashboardRoute extends Component {
     this.state = {
       showPractice: true,
       showQuiz: false,
+      user_id: 0,
+      languageId: 0,
+      overallScore: 0,
       error: null
     };
   }
@@ -30,11 +33,15 @@ class DashboardRoute extends Component {
 
   async componentDidMount() {
     const { language } =  await LanguageService.getLanguage();  
-    this.context.setScore(language.total_score)
+    console.log(language);
+    this.context.setScore(language.total_score);
+    this.context.setLanguage(language.name);
+    this.setState({ user_id: language.user_id, languageId: language.id});
   }
 
   render() {
     let score = this.context.score;
+    let language = this.context.language;
 
     const practiceCardsSection = this.state.showPractice ? <PracticeCards /> : '';
     const quizCardsSection = this.state.showQuiz ? <QuizCards /> : '';
@@ -42,7 +49,8 @@ class DashboardRoute extends Component {
     return (<>
         <section>
           <div className='upperSection'>
-            <p className='currentScore'>Your overall score:&nbsp;{score}</p> 
+            <h2 className='languageTitle'>{language}</h2>
+            <p className='currentScore' >Your overall score: {score}</p> 
             <button className="basicBtn btnB" onClick={(e)=> {this.switchToStudy(e)}} >Study Mode</button>
             <button className="basicBtn btnB" onClick={(e)=> {this.switchToQuiz(e)}} >Quiz Mode</button>
           </div>

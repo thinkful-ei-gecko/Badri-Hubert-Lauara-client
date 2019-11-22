@@ -34,11 +34,11 @@ class PracticeCards extends React.Component{
 
   render(){
 
-    let practiceWords = this.context.words;
-    console.log(practiceWords)
+    let words = this.context.words;
+    console.log(words)
 
-    const allCards = practiceWords.map((word, index) => 
-      <div className='pCard' key={index}>
+    const allCards = words.map((word) => 
+      <li className='pCard' key={word.id}>
         <div className="card">
           <div className="leftSide">
             <h3 className='vocabItem'>{word.original}</h3>
@@ -52,7 +52,7 @@ class PracticeCards extends React.Component{
             <p className='tallyCount'>{word.incorrect_count}</p>
           </div>
         </div>
-      </div> );
+      </li> );
 
     const currentCard = allCards[this.state.currentWordIndex];
 

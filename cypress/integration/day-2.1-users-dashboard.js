@@ -37,38 +37,37 @@ describe(`User story: User's dashboard`, function() {
         cy.root()
           .should(
             'contain',
-            `Total correct answers: ${language.total_score}`,
+            `Your overall score: ${language.total_score}`,
           )
 
-        cy.get('a')
-          .should('have.attr', 'href', '/learn')
-          .and('have.text', 'Start practicing')
+        cy.get('button')
+          .should('have.text', 'Study Mode')
 
-        cy.get('h3')
-          .should('have.text', 'Words to practice')
+        cy.get('button')
+          .should('have.text', 'Quiz Mode')
       })
     })
   })
 
-  it(`shows an LI and link for each language`, () => {
+  it(`shows a DIV and scores for each item`, () => {
     cy.wait('@languageRequest')
     cy.fixture('language.json').then(({ words }) => {
 
-      words.forEach((word, idx) => {
-        cy.get('main section li').eq(idx).within($li => {
+      words.map((word, index) => {
+        cy.get('main div li').eq(index).within($li => {
 
-          cy.get('h4').should('have.text', word.original)
+          cy.get('h3').should('have.text', word.original)
 
           cy.root()
             .should(
               'contain',
-              `correct answer count: ${word.correct_count}`
+              `${word.correct_count}`
             )
 
           cy.root()
             .should(
               'contain',
-              `incorrect answer count: ${word.incorrect_count}`
+              `${word.incorrect_count}`
             )
         })
       })

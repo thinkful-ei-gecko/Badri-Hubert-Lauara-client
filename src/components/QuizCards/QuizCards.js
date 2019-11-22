@@ -92,6 +92,7 @@ class QuizCards extends React.Component {
               <h3 className='vocabItem2'>{this.state.currentWord}</h3>
               <form id='wordInput' onSubmit={(e) => this.handleSubmit(e)}>
                 <label htmlFor='guessInput' className='quizInputLabel'>What's the translation for this word?</label>
+                <br/>
                 <input  type='text'  className='answerBox2' 
                   placeholder='type answer here'
                   id="guessInput" name='guessInput'

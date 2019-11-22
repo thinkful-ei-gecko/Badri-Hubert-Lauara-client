@@ -1,0 +1,174 @@
+
+.upperSection{
+  text-align: center;
+}
+.languageTitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  margin: 9px auto;
+}
+.currentScore {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  margin: 9px auto;
+}
+
+.basicBtn {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(65, 65, 65);
+  font-size: 0.7rem;
+  font-weight: 600;
+  background-color: rgba(167, 167, 167, 0.6);
+  border: 3px solid rgb(220, 220, 220);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  margin: 6px 12px;
+  text-align: center;
+  padding: 3px 9px;
+}
+.btnB{
+  padding: 18px 24px;
+}
+
+.basicBtn:hover {
+  box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.25);
+}
+
+.basicBtn:active {
+  background-color: rgba(146, 146, 146, 0.3);
+}
+.practiceCards{
+  text-align: center;
+  background-color: rgba(100, 163, 163, 0.3);
+  padding: 3px 0 60px 0;
+  display: block;
+}
+.quizCards{
+  text-align: center;
+  background-color: rgba(155, 108, 130, 0.3);
+  padding: 3px 0 51px 0;
+}
+.mode{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgb(80, 80, 80);
+  margin: 24px 0;
+}
+.card {
+  width: 45%;
+  min-width: 400px;
+  margin: 3px auto;
+  padding: 15px 0;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 2px 6px 8px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
+}
+.leftSide{
+  width: 65%;
+  text-align: center;
+}
+.wordNumber{
+  text-align: left;
+  font-size: 0.5rem;
+  margin: 0;
+  padding: 0;
+  padding-left: 9px;
+}
+.vocabItem {
+  font-size: 2rem;
+  margin: 30px 0;
+}
+.vocabAnswer {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 30px 0;
+  opacity: 1;
+	animation-name: fadeInAnswer;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+  animation-duration: 3s;
+}
+@keyframes fadeInAnswer {
+  0% {	opacity: 0; }
+  80% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.rightSide {
+  width: 35%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.7rem;
+  text-align: center;
+  border-left: 1px solid lightgray;
+}
+.tallyTop{
+  font-weight: 700;
+  margin: 15px;
+  border-bottom: 1px solid lightgray;
+}
+.tallyParag{
+  margin-top: 18px;
+  margin-bottom: 3px;
+}
+.tallyCount{
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0;
+}
+.vocabItem2{
+  font-size: 2rem;
+  margin: 15px 0 9px 0;
+}
+.quizInputLabel{
+  margin: 3px 0;
+}
+.answerBox{
+  margin: 4px 0 33px 0;
+  background-color: whitesmoke;
+}
+.answerBox2{
+  margin: 9px auto;
+  background-color: whitesmoke;
+  line-height: 1.2rem;
+}
+#submitAnswer{
+  padding: 2px 6px;
+}
+.messageHolder{
+  text-align: center;
+}
+#feedback{
+  font-size: 1rem;
+  background-color: rgb(255, 255, 103);
+  border-radius: 6px;
+  padding: 9px;
+  width: 50%;
+  vertical-align: 18px;
+}
+#proceed{
+  display: inline-block;
+  vertical-align: 3px;
+  margin-left: 30px;
+}
+.pCard,
+.qCard {
+  list-style-type: none;
+  padding: 0;
+  margin: 24px auto;
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+  animation-duration: 0.3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {	opacity: 0; }
+	100% { opacity: 1; }
+}
+

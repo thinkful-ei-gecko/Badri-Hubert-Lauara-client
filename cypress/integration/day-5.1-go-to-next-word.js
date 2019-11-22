@@ -27,7 +27,7 @@ describe(`User story: Go to next word`, function() {
       .as('postListGuess')
 
     cy.login().visit(`/learn`).wait('@languageHeadRequest')
-    cy.get('input#learn-guess-input').type('anything')
+    cy.get('input#guessInput').type('anything')
     cy.get('form').submit().wait('@postListGuess')
   })
 
@@ -37,23 +37,23 @@ describe(`User story: Go to next word`, function() {
     cy.fixture('language-guess-generic.json')
       .then(languageHeadFixture => {
         cy.get('main').within($main => {
-          cy.get('p').eq(0)
+          cy.get('section p').eq(0)
             .should(
               'have.text',
-              `Your total score is: ${languageHeadFixture.totalScore}`,
+              `Your overall score: ${languageHeadFixture.totalScore}`,
             )
-          cy.get('h2')
-            .should('have.text', 'Translate the word:')
-            .siblings('span')
+          cy.get('form label')
+            .should('have.text', `What's the translation for this word?`)
+            .siblings('h3')
             .should('have.text', languageHeadFixture.nextWord)
         })
       })
 
     cy.get('main form').within($form => {
-      cy.get('label[for=learn-guess-input]')
+      cy.get('label[for=guessInput]')
         .should('have.text', `What's the translation for this word?`)
 
-      cy.get('input#learn-guess-input')
+      cy.get('input#guessInput')
         .should('have.attr', 'type', 'text')
         .and('have.attr', 'required', 'required')
 

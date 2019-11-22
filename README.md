@@ -1,7 +1,7 @@
 # Learn Spanish Medical Terminology - Spaced Repetition Capstone
 
 * Link to live app: 
-* Link to live server: 
+* Link to live server: https://learn-spanish-med-terms-api.herokuapp.com
 
 * Link to client repo: https://github.com/thinkful-ei-gecko/Badri-Hubert-Lauara-client
 * Link to API repo: https://github.com/thinkful-ei-gecko/Badri-Hubert-Laura-Spaced-Repetition-Server

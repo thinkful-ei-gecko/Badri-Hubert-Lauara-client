@@ -23,7 +23,7 @@ describe(`User story: Presented with word`, function() {
       .as('languageHeadRequest')
   })
 
-  it('displays the current score and h2 with next word', () => {
+  it('displays the current score and h3 with next word', () => {
     cy.login()
       .visit(`/learn`)
       .wait('@languageHeadRequest')
@@ -31,15 +31,15 @@ describe(`User story: Presented with word`, function() {
     cy.fixture('language-head.json')
       .then(languageHeadFixture => {
         cy.get('main').within($main => {
-          cy.get('h2')
-            .should('have.text', 'Translate the word:')
-            .siblings('span')
+          cy.get('form label')
+            .should('have.text', 'What\'s the translation for this word?')
+            .siblings('h3')
             .should('have.text', languageHeadFixture.nextWord)
         })
-        cy.get('p').eq(0)
+        cy.get('section p').eq(0)
           .should(
             'have.text',
-            `Your total score is: ${languageHeadFixture.totalScore}`,
+            `Your overall score is: ${languageHeadFixture.totalScore}`,
           )
       })
   })
@@ -50,10 +50,10 @@ describe(`User story: Presented with word`, function() {
       .wait('@languageHeadRequest')
 
     cy.get('main form').within($form => {
-      cy.get('label[for=learn-guess-input]')
+      cy.get('label[for=guessInput]')
         .should('have.text', `What's the translation for this word?`)
 
-      cy.get('input#learn-guess-input')
+      cy.get('input#guessInput')
         .should('have.attr', 'type', 'text')
         .and('have.attr', 'required', 'required')
 
@@ -69,15 +69,17 @@ describe(`User story: Presented with word`, function() {
 
     cy.fixture('language-head.json').then(languageHeadFixture => {
       cy.get('main').within($main => {
-        cy.root()
+          cy.root()
           .should(
             'contain',
-            `You have answered this word correctly ${languageHeadFixture.wordCorrectCount} times.`,
+            `${word.correct_count}`
           )
-          .and(
+          cy.root()
+          .should(
             'contain',
-            `You have answered this word incorrectly ${languageHeadFixture.wordIncorrectCount} times.`,
+            `${word.incorrect_count}`
           )
+
       })
     })
   })

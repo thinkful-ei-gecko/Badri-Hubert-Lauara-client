@@ -15,7 +15,7 @@ describe(`User story: Application name and purpose`, function() {
       .get('p')
       .should(
         'have.text',
-        'Practice learning a language with the spaced repetition technique.'
+        'Practice learning a language with the spaced repetition technique.Created by Badri Narayana Tulsiram || Hubert Yang || Laura Elias'
       )
   })
 })

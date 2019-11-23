@@ -51,25 +51,21 @@ describe(`User story: User's dashboard`, function() {
 
   it.only(`shows a DIV and scores for each item`, () => {
     cy.wait('@languageRequest')
-    cy.fixture('language.json').then(({ words }) => {
+    cy.fixture('language.json').then(({words}) => {
+      cy.get('main li').within($main => {
+        cy.get('h3')
+          .should('have.text', words[0].original)
+        cy.root()
+          .should(
+            'contain',
+            `${words[0].correct_count}`
+          )
 
-      words.forEach((word, index) => {
-        cy.get('main li').eq(index).within($li => {
-
-          cy.get('h3').should('have.text', word.original)
-
-          cy.root()
-            .should(
-              'contain',
-              `${word.correct_count}`
-            )
-
-          cy.root()
-            .should(
-              'contain',
-              `${word.incorrect_count}`
-            )
-        })
+        cy.root()
+          .should(
+            'contain',
+            `${words[0].incorrect_count}`
+          )
       })
     })
   })

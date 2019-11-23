@@ -85,21 +85,23 @@ describe(`User story: Answer feedback`, function() {
         const [languageHeadFixture, incorrectFixture] = fixtures
 
         cy.get('main').within($main => {
-          cy.get('.currentScore p')
+          cy.get('p').eq(0)
             .should(
               'have.text',
-              `Your total score: ${incorrectFixture.totalScore}`,
+              `Your overall score: ${incorrectFixture.totalScore}`,
             )
-          cy.get('#feedback span')
+          cy.get('span').eq(0)
             .should(
               'have.text',
-              `Incorrect. The answer is "${incorrectFixture.answer}".`,
+              `Incorrect. The answer is "${incorrectFixture.answer}".Next`,
             )
-          cy.get('button')
+          cy.get('span').within($span => {
+            cy.get('button').eq(0)
             .should(
               'have.text',
               `Next`,
             )
+          })
         })
       })
     })
@@ -122,7 +124,7 @@ describe(`User story: Answer feedback`, function() {
       cy.get('form').submit().wait('@postListGuessCorrect')
     })
 
-    it(`gives feedback the word was correct`, () => {
+    it.only(`gives feedback the word was correct`, () => {
       //  cypress fixtures has buggy behaviour, this works around it o_O
       const fixtures = []
       Cypress.Promise.all([
@@ -134,21 +136,23 @@ describe(`User story: Answer feedback`, function() {
         const [languageHeadFixture, incorrectFixture] = fixtures
 
         cy.get('main').within($main => {
-          cy.get('.DisplayScore p')
+          cy.get('p').eq(0)
             .should(
               'have.text',
-              `Your total score is: ${incorrectFixture.totalScore}`,
+              `Your overall score: ${incorrectFixture.totalScore}`,
             )
-          cy.get('.DisplayFeedback p')
+            cy.get('span').eq(0)
             .should(
               'have.text',
-              `Yes, the answer is "${incorrectFixture.answer}"!`,
+              `Yes, the answer is "${incorrectFixture.answer}"!Next`,
             )
-          cy.get('button')
-            .should(
-              'have.text',
-              `Next`,
-            )
+            cy.get('span').within($span => {
+              cy.get('button').eq(0)
+              .should(
+                'have.text',
+                `Next`,
+              )
+            })
         })
       })
     })

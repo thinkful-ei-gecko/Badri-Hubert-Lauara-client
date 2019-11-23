@@ -11,6 +11,7 @@
   - I'm shown the number of correct and incorrect guesses for that word
   - I'm presented an input to type my answer/guess for the current words translation
 */
+
 describe(`User story: Presented with word`, function() {
   beforeEach(() => {
     cy.server()
@@ -24,6 +25,7 @@ describe(`User story: Presented with word`, function() {
   })
 
   it('displays the current score and h3 with next word', () => {
+
     cy.login()
       .visit(`/learn`)
       .wait('@languageHeadRequest')
@@ -34,10 +36,10 @@ describe(`User story: Presented with word`, function() {
           cy.get('h3')
             .should('have.text', languageHeadFixture.nextWord)
         })
-        cy.get('section p').eq(0)
+        cy.get('p').eq(0)
           .should(
             'have.text',
-            `Your overall score: ${languageHeadFixture.totalScore}`,
+            `Your overall score: ${Number()}`
           )
       })
   })
@@ -70,12 +72,12 @@ describe(`User story: Presented with word`, function() {
           cy.root()
           .should(
             'contain',
-            `${languageHeadFixture.correct_count}`
+            `${languageHeadFixture.wordCorrectCount}`
           )
           cy.root()
           .should(
             'contain',
-            `${languageHeadFixture.incorrect_count}`
+            `${languageHeadFixture.wordIncorrectCount}`
           )
 
       })

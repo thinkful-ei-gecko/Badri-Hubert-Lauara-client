@@ -32,7 +32,7 @@ describe(`User story: Go to next word`, function() {
   })
 
   it(`displays another word after clicking the 'next' button`, () => {
-    cy.get('main button').click()
+    cy.get('main button').last().click()
 
     cy.fixture('language-guess-generic.json')
       .then(languageHeadFixture => {
@@ -44,8 +44,6 @@ describe(`User story: Go to next word`, function() {
             )
           cy.get('form label')
             .should('have.text', `What's the translation for this word?`)
-            .siblings('h3')
-            .should('have.text', languageHeadFixture.nextWord)
         })
       })
 
